@@ -25,6 +25,7 @@
 
             <!-- Menu Navigasi -->
             <nav class="flex-1 p-4 space-y-2">
+                @if(auth()->user()->role == 'admin')
 
                 <!-- Dashboard -->
                 <a href="{{ route('admin.dashboard') }}"
@@ -67,6 +68,36 @@
                     {{ request()->routeIs('admin.pengembalian*') ? 'bg-gray-800 text-white font-medium shadow' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                     Kelola Pengembalian
                 </a>
+
+            @elseif(auth()->user()->role == 'petugas')
+
+                 <!-- Menu Persetujuan Peminjaman -->
+                <a href="{{ route('petugas.peminjaman.index') }}"
+                    class="block px-4 py-2 rounded-lg transition
+                    {{ request()->routeIs('petugas.peminjaman*') ? 'bg-gray-800 text-white font-medium shadow' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                    Persetujuan Peminjaman
+                </a>
+
+                <!-- MENU KHUSUS PETUGAS -->
+                @if(auth()->user()->role === 'petugas')
+                    <a href="{{ route('petugas.peminjaman.index') }}"
+                        class="block px-4 py-2 rounded-lg transition {{
+                        request()->routeIs('petugas.peminjaman*') ? 'bg-gray-800 text-white font-medium shadow' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                    </a>
+
+                    <a href="{{ route('petugas.pengembalian.index') }}"
+                        class="block px-4 py-2 rounded-lg transition {{
+                        request()->routeIs('petugas.pengembalian*') ? 'bg-gray-800 text-white font-medium shadow' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                        Pemantauan Pengembalian</a>
+
+                    <a href="{{ route('petugas.pengembalian.index') }}"
+                        class="block px-4 py-2 rounded-lg transition {{
+                        request()->routeIs('petugas.pengembalian*') ? 'bg-gray-800 text-white font-medium shadow' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                        Pemantauan Pengembalian</a>
+            @endif
+    
+
+            @endif
 
             </nav>
 

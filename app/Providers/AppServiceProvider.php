@@ -3,6 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Peminjaman;
+use App\Models\Pengembalian;
+use App\Observers\PemijamanObserver;
+use App\Observers\PengembalianObserver;
+use App\Observers\AlatObserver;
+use Appp\Models\Alat;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        
     }
 }
