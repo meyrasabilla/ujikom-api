@@ -61,7 +61,7 @@ class AdminController extends Controller
 
         $data = $request->all();
 
-        // Handle Upload Gambar jika ada
+        // Handle Upload gambar jika ada
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -88,7 +88,7 @@ class AdminController extends Controller
 
         $request->validate([
             'nama_alat' => 'required|string|max:255',
-            'kategori_id' => 'required|exists:kategoris,id',
+            'kategori_id' => 'required|exists:kategori,id',
             'stok' => 'required|integer|min:0',
             'status_kondisi' => 'required|string|max:100',
             'deskripsi' => 'nullable|string',
@@ -97,7 +97,7 @@ class AdminController extends Controller
 
         $data = $request->all();
 
-        // Handle Update Gambar jika ada file baru
+        // Handle Update gambar jika ada file baru
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
             if ($alat->gambar && file_exists(public_path($alat->gambar))) {

@@ -42,7 +42,7 @@
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-gray-100 text-gray-600 text-sm uppercase tracking-wider">
-                        <th class="py-3 px-4 border-b">Gambar</th>
+                        <th class="py-3 px-4 border-b">gambar</th>
                         <th class="py-3 px-4 border-b">Nama Alat</th>
                         <th class="py-3 px-4 border-b">Kategori</th>
                         <th class="py-3 px-4 border-b">Stok</th>
