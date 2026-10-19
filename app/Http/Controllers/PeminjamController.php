@@ -14,7 +14,7 @@ class PeminjamController extends Controller
     public function katalogAlat()
     {
         $alats = Alat::with('kategori')->where('stok', '>', 0)->get();
-        return view('peminjam.katalog', compact('alat'));
+        return view('peminjaman.katalog', compact('alats'));
     }
 
     public function ajukanPeminjaman(Request $request)
@@ -60,6 +60,6 @@ class PeminjamController extends Controller
             ->latest()
             ->get();
 
-        return view('peminjam.riwayat', compact('peminjaman'));
+        return view('peminjaman.riwayat', compact('peminjamans'));
     }
 }
